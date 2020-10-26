@@ -69,9 +69,10 @@ def rangoli(n):
 
     :param n:
     :return:
-3
-lines is 5 = 2n-1
-pad is 9 = (2n-1)+(2n-2) -> 4n-3
+
+    3
+    lines is 5 = 2n-1
+    pad is 9 = (2n-1)+(2n-2) -> 4n-3
     ----c----
     --c-b-c--
     c-b-a-b-c
