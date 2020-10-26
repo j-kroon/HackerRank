@@ -77,43 +77,6 @@ pad is 9 = (2n-1)+(2n-2) -> 4n-3
     c-b-a-b-c
     --c-b-c--
     ----c----
-
-5
-lines is 9 = 2n-1
-pad is 17 = (2n-1)+(2n-2)
-    --------e--------
-    ------e-d-e------
-    ----e-d-c-d-e----
-    --e-d-c-b-c-d-e--
-    e-d-c-b-a-b-c-d-e
-    --e-d-c-b-c-d-e--
-    ----e-d-c-d-e----
-    ------e-d-e------
-    --------e--------
-
-10
-lines is 19 = 2n-1
-pad is 37 =
-
-    ------------------j------------------
-    ----------------j-i-j----------------
-    --------------j-i-h-i-j--------------
-    ------------j-i-h-g-h-i-j------------
-    ----------j-i-h-g-f-g-h-i-j----------
-    --------j-i-h-g-f-e-f-g-h-i-j--------
-    ------j-i-h-g-f-e-d-e-f-g-h-i-j------
-    ----j-i-h-g-f-e-d-c-d-e-f-g-h-i-j----
-    --j-i-h-g-f-e-d-c-b-c-d-e-f-g-h-i-j--
-    j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
-    --j-i-h-g-f-e-d-c-b-c-d-e-f-g-h-i-j--
-    ----j-i-h-g-f-e-d-c-d-e-f-g-h-i-j----
-    ------j-i-h-g-f-e-d-e-f-g-h-i-j------
-    --------j-i-h-g-f-e-f-g-h-i-j--------
-    ----------j-i-h-g-f-g-h-i-j----------
-    ------------j-i-h-g-h-i-j------------
-    --------------j-i-h-i-j--------------
-    ----------------j-i-j----------------
-    ------------------j------------------
     """
 
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
@@ -124,11 +87,13 @@ pad is 37 =
 
     for i in range(n-2, -1, -1):
         initial.append(alphabet[i])
-        top.append(filler.join(initial[:-1]+[alphabet[i]]+list(reversed(initial[:-1]))).center(pad, filler))
+        sub_list = initial[:-1]+[alphabet[i]]+list(reversed(initial[:-1]))
+        sub_seq = filler.join(sub_list).center(pad, filler)
+        top.append(sub_seq)
 
     bot = list(reversed(top[:-1]))
-    return '\n'.join(top + bot)
+    result = '\n'.join(top + bot)
+    print(result)
+    return
 
 
-result = rangoli(5)
-print(result)
