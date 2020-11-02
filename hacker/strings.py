@@ -1,5 +1,5 @@
 import textwrap
-
+import string
 
 def wrap(string, max_width):
     string_list = textwrap.wrap(string, max_width)
@@ -46,8 +46,6 @@ def print_formatted(number):
     :param number:
     :return:
     """
-    # your code goes here
-    # your code goes here
     result = []
     pad = len(f'{number:b}') + 1
     for i in range(1, number+1):
@@ -79,8 +77,7 @@ def rangoli(n):
     --c-b-c--
     ----c----
     """
-
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    alphabet = string.ascii_lowercase
     pad = 4*n-3
     filler = '-'
     initial = [alphabet[n-1]]
@@ -98,3 +95,9 @@ def rangoli(n):
     return
 
 
+def capitalize(s):
+    s = string.capwords(s, ' ')
+    return s
+
+
+print(capitalize('alan chris'))
