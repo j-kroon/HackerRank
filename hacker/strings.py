@@ -100,4 +100,3 @@ def capitalize(s):
     return s
 
 
-print(capitalize('alan chris'))
